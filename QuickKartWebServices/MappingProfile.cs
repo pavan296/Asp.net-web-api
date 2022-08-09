@@ -8,6 +8,7 @@ namespace QuickKartWebServices
         public MappingProfile()
         {
             CreateMap<Products, Models.Product>();
+            CreateMap<Categories, Models.Category>();
         }
         
     }

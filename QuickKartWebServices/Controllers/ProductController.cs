@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace QuickKartWebServices.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -48,10 +48,20 @@ namespace QuickKartWebServices.Controllers
         }
 
         // GET api/<ProductController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public JsonResult GetProduct(string productId)
         {
-            return "value";
+            Models.Product product = null;
+            try
+            {
+                product=_mapper.Map<Models.Product>(_repository.GetProductDetails(productId));
+
+            }
+            catch(Exception ex)
+            {
+                product = null;
+            }
+            return new JsonResult(product);
         }
 
         // POST api/<ProductController>
