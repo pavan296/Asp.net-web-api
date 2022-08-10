@@ -9,6 +9,8 @@ namespace QuickKartWebServices
         {
             CreateMap<Products, Models.Product>();
             CreateMap<Categories, Models.Category>();
+            CreateMap<Models.Product, Products>();
+            CreateMap<Models.Category,Categories>();
         }
         
     }

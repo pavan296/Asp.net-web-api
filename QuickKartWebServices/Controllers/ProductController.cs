@@ -66,20 +66,53 @@ namespace QuickKartWebServices.Controllers
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public JsonResult AddProduct(Models.Product product)
         {
+            bool status = false;
+            try
+            {
+                status = _repository.AddProduct(_mapper.Map<Products>(product));
+            }
+            catch (Exception ex)
+            {
+                status = false;
+            }
+            return new JsonResult(status);
         }
+
 
         // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public JsonResult UpdateProduct(Models.Product product)
         {
+            bool status = false;
+            try
+            {
+                status = _repository.UpdateProduct(_mapper.Map<Products>(product));
+            }
+            catch (Exception ex)
+            {
+                status = false;
+            }
+            return new JsonResult(status);
         }
 
+
         // DELETE api/<ProductController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        public JsonResult DeleteProduct(string productId)
         {
+            bool status = false;
+            try
+            {
+                status = _repository.DeleteProduct(productId);
+            }
+            catch (Exception ex)
+            {
+                status = false;
+            }
+            return new JsonResult(status);
         }
+
     }
 }

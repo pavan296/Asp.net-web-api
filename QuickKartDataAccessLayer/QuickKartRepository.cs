@@ -75,6 +75,11 @@ namespace QuickKartDataAccessLayer
             }
             return productId;
         }
+
+        public bool AddCategory(Categories categories)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region- To add a new product

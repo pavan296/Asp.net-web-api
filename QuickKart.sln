@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartDataAccessLayer", "QuickKartDataAccessLayer\QuickKartDataAccessLayer.csproj", "{30D540E4-8430-47D4-AC7B-9C30E59B96D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickKartWebServices", "QuickKartWebServices\QuickKartWebServices.csproj", "{537EBCCC-E34D-4A96-904D-B63079E4D2FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartWebServices", "QuickKartWebServices\QuickKartWebServices.csproj", "{537EBCCC-E34D-4A96-904D-B63079E4D2FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartMVCApp", "QuickKartMVCApp\QuickKartMVCApp.csproj", "{35038CDF-31CE-40B5-8499-EFDC516944FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{537EBCCC-E34D-4A96-904D-B63079E4D2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{537EBCCC-E34D-4A96-904D-B63079E4D2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{537EBCCC-E34D-4A96-904D-B63079E4D2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

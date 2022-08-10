@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace QuickKartWebServices.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -56,8 +56,18 @@ namespace QuickKartWebServices.Controllers
 
         // POST api/<CategoryController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public JsonResult AddCategory(Models.Category category)
         {
+            bool status = false;
+            try
+            {
+                status = _repository.AddCategory(_mapper.Map<Categories>(category));
+            }
+            catch(Exception ex)
+            {
+                status = false;
+            }
+            return new JsonResult(status);
         }
 
         // PUT api/<CategoryController>/5
