@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartDataAccessLayer", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartWebServices", "QuickKartWebServices\QuickKartWebServices.csproj", "{537EBCCC-E34D-4A96-904D-B63079E4D2FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartMVCApp", "QuickKartMVCApp\QuickKartMVCApp.csproj", "{35038CDF-31CE-40B5-8499-EFDC516944FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickKartMVCApp", "QuickKartMVCApp\QuickKartMVCApp.csproj", "{3B4E7716-D98D-444A-B5DB-B1D96D3B5A4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{537EBCCC-E34D-4A96-904D-B63079E4D2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{537EBCCC-E34D-4A96-904D-B63079E4D2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{537EBCCC-E34D-4A96-904D-B63079E4D2FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35038CDF-31CE-40B5-8499-EFDC516944FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B4E7716-D98D-444A-B5DB-B1D96D3B5A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B4E7716-D98D-444A-B5DB-B1D96D3B5A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B4E7716-D98D-444A-B5DB-B1D96D3B5A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B4E7716-D98D-444A-B5DB-B1D96D3B5A4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

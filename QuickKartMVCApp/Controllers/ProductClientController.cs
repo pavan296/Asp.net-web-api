@@ -11,10 +11,13 @@ namespace QuickKartMVCApp.Controllers
     public class ProductClientController : Controller
     {
         IConfiguration configuration;
+
         public ProductClientController(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
+
+
         // GET: ProductClientController
         public ActionResult Index()
         {
@@ -28,10 +31,9 @@ namespace QuickKartMVCApp.Controllers
             }
             catch (Exception ex)
             {
-                return View();
+                return View("Error");
             }
         }
-
 
         // GET: ProductClientController/Details/5
         public ActionResult Details(int id)
