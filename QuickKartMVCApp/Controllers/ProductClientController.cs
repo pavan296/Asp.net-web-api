@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using QuickKartMVCApp.Repository;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace QuickKartMVCApp.Controllers
 {
@@ -14,8 +18,20 @@ namespace QuickKartMVCApp.Controllers
         // GET: ProductClientController
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                ServiceRepository serviceRepository = new ServiceRepository(configuration);
+                HttpResponseMessage response = serviceRepository.GetResponse("api/Product/");
+                response.EnsureSuccessStatusCode();
+                List<Models.Product> products = response.Content.ReadAsAsync<List<Models.Product>>().Result;
+                return View(products);
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
+
 
         // GET: ProductClientController/Details/5
         public ActionResult Details(int id)
