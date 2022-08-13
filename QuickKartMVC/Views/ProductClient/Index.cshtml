@@ -31,7 +31,9 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @if (Model != null)
+        {
+                    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductId)
@@ -49,11 +51,13 @@
                 @Html.DisplayFor(modelItem => item.QuantityAvailable)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", item) |
+                @Html.ActionLink("Details", "Details", new {  productId=item.ProductId  }) |
+                @Html.ActionLink("Delete", "Delete", item})
             </td>
         </tr>
 }
+        }
+
     </tbody>
 </table>

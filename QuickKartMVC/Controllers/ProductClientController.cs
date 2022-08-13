@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using QuickKartMVC.Models;
 using QuickKartMVC.Repository;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace QuickKartMVC.Controllers
         // GET: ProductClientController
         public ActionResult Index()
         {
+
             try
             {
                 ServiceRepository serviceRepository = new ServiceRepository(configuration);
@@ -34,72 +36,118 @@ namespace QuickKartMVC.Controllers
 
 
         // GET: ProductClientController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string productId)
         {
-            return View();
+            try
+            {
+                ServiceRepository serviceRepository = new ServiceRepository(configuration);
+                HttpResponseMessage response = serviceRepository.GetResponse("api/Product/GetProduct?productId=" + productId);
+                response.EnsureSuccessStatusCode();
+                Models.Product product = response.Content.ReadAsAsync<Models.Product>().Result;
+                return View(product);
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
 
         // GET: ProductClientController/Create
         public ActionResult Create()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
 
         // POST: ProductClientController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Models.Product prodObj)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                ServiceRepository serviceRepository = new ServiceRepository(configuration);
+                HttpResponseMessage response = serviceRepository.PostRequest("api/Product/AddProduct", prodObj);
+                response.EnsureSuccessStatusCode();
+                if (response.Content.ReadAsAsync<bool>().Result)
+                    return View("Success");
+                return View("Error");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View("Error");
             }
         }
 
-        // GET: ProductClientController/Edit/5
-        public ActionResult Edit(int id)
+
+        public ActionResult Edit(Models.Product product)
         {
-            return View();
+            try
+            {
+                return View(product);
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
+
 
         // POST: ProductClientController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult UpdateProduct(Models.Product product)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                ServiceRepository serviceRepository = new ServiceRepository(configuration);
+                HttpResponseMessage response = serviceRepository.PutRequest("api/Product/UpdateProduct", product);
+                response.EnsureSuccessStatusCode();
+                if (response.Content.ReadAsAsync<bool>().Result)
+                    return View("Success");
+                return View("Error");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
         }
 
-        // GET: ProductClientController/Delete/5
-        public ActionResult Delete(int id)
+
+        public ActionResult Delete(Models.Product product)
         {
-            return View();
+            try
+            {
+                return View(product);
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
+
 
         // POST: ProductClientController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteProduct(Models.Product product)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                ServiceRepository serviceRepository = new ServiceRepository(configuration);
+                HttpResponseMessage response = serviceRepository.DeleteRequest("api/Product/DeleteProduct?ProductId=" + product.ProductId);
+                response.EnsureSuccessStatusCode();
+                if (response.Content.ReadAsAsync<bool>().Result)
+                    return View("Success");
+                return View("Error");
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
         }
+
     }
 }
